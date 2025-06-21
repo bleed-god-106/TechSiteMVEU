@@ -1,5 +1,5 @@
-const { MongoClient } = require('mongodb');
-const bcrypt = require('bcryptjs');
+import { MongoClient } from 'mongodb';
+import bcrypt from 'bcryptjs';
 
 // Конфигурация подключения
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/tech-site-craft';
@@ -452,16 +452,14 @@ async function initSampleData() {
 }
 
 // Запуск скрипта
-if (require.main === module) {
-  initSampleData()
-    .then(() => {
-      console.log('\n✅ Скрипт выполнен успешно');
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error('❌ Ошибка выполнения скрипта:', error);
-      process.exit(1);
-    });
-}
+initSampleData()
+  .then(() => {
+    console.log('\n✅ Скрипт выполнен успешно');
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error('❌ Ошибка выполнения скрипта:', error);
+    process.exit(1);
+  });
 
-module.exports = { initSampleData };
+export { initSampleData };
