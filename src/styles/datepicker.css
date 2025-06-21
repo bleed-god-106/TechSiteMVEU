@@ -1,0 +1,134 @@
+/* Кастомные стили для React DatePicker */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker {
+  font-family: inherit;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #d1d5db;
+  border-radius: 8px 8px 0 0;
+}
+
+.react-datepicker__current-month {
+  color: #374151;
+  font-weight: 600;
+}
+
+.react-datepicker__day-name {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.react-datepicker__day {
+  color: #374151;
+  border-radius: 4px;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e5e7eb;
+}
+
+.react-datepicker__day--selected {
+  background-color: #2563eb !important;
+  color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.react-datepicker__day--today {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.react-datepicker__navigation {
+  top: 13px;
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: #6b7280;
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: #6b7280;
+}
+
+.react-datepicker__year-dropdown,
+.react-datepicker__month-dropdown {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.react-datepicker__year-option,
+.react-datepicker__month-option {
+  color: #374151;
+}
+
+.react-datepicker__year-option:hover,
+.react-datepicker__month-option:hover {
+  background-color: #f3f4f6;
+}
+
+.react-datepicker__year-option--selected,
+.react-datepicker__month-option--selected {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Кастомные стили для React Image Crop */
+.ReactCrop {
+  max-width: 100%;
+}
+
+.ReactCrop__crop-selection {
+  border: 2px solid #2563eb;
+  border-radius: 50%;
+}
+
+.ReactCrop__drag-handle {
+  background-color: #2563eb;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.ReactCrop__drag-handle:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.ReactCrop__crop-selection:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* Стили для модальных окон */
+.modal-main {
+  z-index: 50;
+}
+
+.modal-crop {
+  z-index: 60;
+} 

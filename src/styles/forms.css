@@ -1,0 +1,220 @@
+/* Стили для обязательных полей */
+.required-field {
+  position: relative;
+}
+
+.required-field::after {
+  content: "*";
+  color: #dc2626; /* red-600 */
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Для полей с иконками валидации - смещаем звездочку */
+.required-field:has(.validation-icon)::after {
+  right: 32px;
+}
+
+/* Состояния валидации */
+.field-valid {
+  border-color: #16a34a !important; /* green-600 */
+  background-color: #f0fdf4; /* green-50 */
+}
+
+.field-invalid {
+  border-color: #dc2626 !important; /* red-600 */
+  background-color: #fef2f2; /* red-50 */
+}
+
+.field-warning {
+  border-color: #ca8a04 !important; /* yellow-600 */
+  background-color: #fefce8; /* yellow-50 */
+}
+
+/* Лейблы для обязательных полей */
+.required-label::after {
+  content: " *";
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Группы полей */
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-group.required {
+  background: linear-gradient(to right, transparent 0%, rgba(220, 38, 38, 0.05) 100%);
+  border-left: 3px solid #dc2626;
+  padding-left: 12px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Подсказки валидации */
+.validation-hint {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.validation-hint.success {
+  color: #16a34a;
+}
+
+.validation-hint.error {
+  color: #dc2626;
+}
+
+.validation-hint.warning {
+  color: #ca8a04;
+}
+
+/* Иконки в подсказках */
+.validation-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Анимации */
+.validation-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Прогресс заполнения формы */
+.form-progress {
+  background: linear-gradient(to right, #16a34a 0%, #16a34a var(--progress), #e5e7eb var(--progress), #e5e7eb 100%);
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Группировка по важности */
+.critical-fields {
+  border: 2px solid #fca5a5;
+  background: #fef2f2;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.critical-fields::before {
+  content: "🔴 Критически важные поля";
+  display: block;
+  font-weight: bold;
+  color: #dc2626;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+.important-fields {
+  border: 2px solid #fed7aa;
+  background: #fff7ed;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.important-fields::before {
+  content: "🟡 Важные поля";
+  display: block;
+  font-weight: bold;
+  color: #ca8a04;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+.optional-fields {
+  border: 2px solid #e0e7ff;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.optional-fields::before {
+  content: "🔵 Дополнительная информация";
+  display: block;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+/* Подсветка незаполненных обязательных полей */
+.form-submit-attempt .required-field:invalid,
+.form-submit-attempt .required-field[data-empty="true"] {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Счетчик заполненности */
+.completion-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.completion-counter.complete {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.completion-counter.incomplete {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Tooltip для обязательных полей */
+.required-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.required-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1f2937;
+}
+
+.required-field:hover .required-tooltip {
+  opacity: 1;
+  visibility: visible;
+} 
